@@ -1,0 +1,63 @@
+---
+title: "Tarea_1"
+author: "Alejandro Parra"
+date: "26/02/2022"
+output: html_document
+---
+
+### Literal.A
+Crear un identificador de nombre "ciudad" y asigne como valor el nombre de alguna ciudad
+```{r ,echo = TRUE}
+ciudad <- "Ambato"
+ciudad
+```
+
+### Literal.B
+Crear un identificador de nombre "pais_andes" y asigne como valor los nombres de los países por donde cruza la cordillera de Los Andes
+
+```{r ,echo = TRUE }
+
+paises_andes <- c("Argentina", "Bolivia", "Chile", "Colombia",
+                  "Ecuador" ,"Perú", "Venezuela")
+paises_andes
+```
+
+### Literal.C
+
+Crear un dataframe con 12 eventos (files) y 5 variables (columnas), cada columna debe tener diferentes tipos de datos (entero, decimal, caracter, logico)
+
+```{r ,echo = TRUE}
+
+Tabla <- data.frame( index=seq(1:12),
+                     paises= c("Argentina", "Bolivia", "Chile", "Colombia",
+                               "Ecuador" ,"Perú", "Venezuela","España",
+                               "China","México","Francia","Japón") , 
+                     num_ciudad= sample(1:20, 12, replace = TRUE),
+                     población=c("57.9","65.7","12.3","54.1","72.78",
+                                 "45.9","90.4","52.8",
+                                 "76.7","13.4","78.8","120.9"),
+                     estatura=sample(c("alto", "medio", "bajo"),
+                                     12,replace=TRUE))
+Tabla
+```
+
+### Literal.D
+Cargue el dataset "DNase" e identifique su estructura. Extraiga (subset) los datos que cumplan con las condiciones de:
+1. "conc" (concentracion) entre 0.1 y 0.2
+2. "Run" diferente a 2, "conc" mayor a 0.2 y "density" menor o igual a 1.0
+
+```{r ,echo = TRUE,warning=FALSE}
+setwd("C:/Users/Alejandro Parra Ruiz/Desktop")
+library("dplyr")
+concen1 <- filter(DNase, conc <= 0.2 & conc >= 0.1)
+concen1
+```
+
+
+```{r ,echo = TRUE,warning=FALSE}
+concen2 <- filter(DNase, Run !=2 & conc > 0.2 & density<=1)
+concen2
+```
+
+
+
